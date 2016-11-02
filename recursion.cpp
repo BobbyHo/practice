@@ -2,7 +2,9 @@
 #include <vector>
 #include <queue>
 #include <cstdio>
-#include <unordered_map>
+#include <map>
+#include <stdio.h>
+#include <cstring>
 
 using namespace std;
 //1 2 3 4 5 7
@@ -130,7 +132,9 @@ int climb_stairs_helper(int steps, int *buffer)
 
 int climb_stairs(int steps)
 {
-    int buffer[steps+1] = {0};
+    int buffer[steps+1];
+
+    memset(buffer, 0x0, (steps+1));
     int result = 0;
     result = climb_stairs_helper(steps, buffer);
     printf(" result for %d steps is %d\n", steps, result);
@@ -222,7 +226,7 @@ int count_rotations_in_sorted_array(int *arr, int size)
 
 void print_subset_helper(vector< int > &subset)
 {
-    for (int i : subset) {
+    for (int i=0; i<subset.size(); i++) {
         printf(" %d ", i);
     }
     printf("\n");
@@ -243,7 +247,7 @@ void print_subsets_in_array(int *array, int size, vector<vector< int > > &subset
 
     vector< int > temp;
     temp.push_back(element);
-    subsets.push_back(move(temp));
+    subsets.push_back(temp);
     printf(" %d\n", element);
 }
 
@@ -255,7 +259,7 @@ void print_powerset(int *arr, int size)
 
 void print_target_sum_pairs(int *arr, int size, int target_sum)
 {
-    unordered_map<int, int> complement;
+    map<int, int> complement;
     
     for (int i=0; i<size; i++) {
         int difference = target_sum - arr[i];
@@ -316,7 +320,10 @@ void merge_sort_helper(int *arr, int *helper, int start, int end)
 
 void merge_sort(int *arr, int size)
 {
-   int helper[size] = {0};
+   int helper[size];
+
+   memset(helper, 0x0, size);
+
    merge_sort_helper(arr, helper, 0, (size-1));
    
    printf("Array after sorting: \n");
@@ -479,12 +486,12 @@ void test_first_missing_number()
 
 int main()
 {
-    //test_first_missing_number();
-    //test_find_target_number_occurance();
-    //test_climb_stairs();
-    //test_find_number_in_rotated_array();
-    //test_count_rotations_in_sorted_array();
-    //test_print_target_sum_pairs();
-    //test_print_subset();
+    test_first_missing_number();
+    test_find_target_number_occurance();
+    test_climb_stairs();
+    test_find_number_in_rotated_array();
+    test_count_rotations_in_sorted_array();
+    test_print_target_sum_pairs();
+    test_print_subset();
     test_merge_sort();
 }
