@@ -1,4 +1,4 @@
-Steps to setup Google Test Framework in my Linux workstation (running Ubtuntu):
+Steps to setup Google Test Framework in my Linux workstation (running Ubuntu):
 
 1) sudo apt-get install libgtest-dev
 
