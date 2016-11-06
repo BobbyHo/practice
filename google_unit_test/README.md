@@ -21,16 +21,16 @@ Steps to setup Google Test Framework in my Linux workstation (running Ubtuntu):
 }
 
 4) Create CMakeLists.txt:
-
-cmake_minimum_required(VERSION 2.6)
+For example:
+  cmake_minimum_required(VERSION 2.6)
  
-#Locate GTest
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+  #Locate GTest
+  find_package(GTest REQUIRED)
+  include_directories(${GTEST_INCLUDE_DIRS})
  
-#Link runTests with what we want to test and the GTest and pthread library
-add_executable(runTests recursion.cpp)
-target_link_libraries(runTests ${GTEST_LIBRARIES} pthread
+  #Link runTests with what we want to test and the GTest and pthread library
+  add_executable(runTests recursion.cpp)
+  target_link_libraries(runTests ${GTEST_LIBRARIES} pthread
 
 5) Compile and run tests:
 - cmake CMakeLists.txt
