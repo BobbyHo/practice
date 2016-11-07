@@ -13,4 +13,4 @@ $(TARGET): $(TARGET).cpp
 	$(CC) $(DEBUG) -o $(TARGET) $(TARGET).cpp
 
 clean: 
-	$(RM) $(TARGET)
+	rm -f $(TARGET)
